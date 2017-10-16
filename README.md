@@ -1,2 +1,2 @@
 # anathi.io
-personal website
+My Personal website. Will be working soon!
