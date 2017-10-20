@@ -6,6 +6,8 @@ import "./menu-item.css";
 
 import backgroundDiv1 from "../../media_assets/nyc4.jpg";
 import anathiLogo from "../../media_assets/anathiIconRedSquare.jpg";
+import introLogo from "../../media_assets/sent-mail.svg";
+import skillLogo from "../../media_assets/skill.svg";
 
 class Home extends Component {
   constructor() {
@@ -107,10 +109,10 @@ class Home extends Component {
 
     //Div Overlay "Dormant" ClassNames
     let splashDivOverlayClassName = "splash-div-overlay";
-    let aboutDivOverlayClassName = "about-div-overlay";
-    let skillsDivOverlayClassName = "skills-div-overlay";
-    let projectsDivOverlayClassName = "projects-div-overlay";
-    let contactDivOverlayClassName = "contact-div-overlay";
+    //let aboutDivOverlayClassName = "about-div-overlay";
+    //let skillsDivOverlayClassName = "skills-div-overlay";
+    //let projectsDivOverlayClassName = "projects-div-overlay";
+    //let contactDivOverlayClassName = "contact-div-overlay";
 
     //Splash-Div stuff "Dormant" ClassNames
     let splashGrettingClassName = "greeting";
@@ -127,10 +129,10 @@ class Home extends Component {
 
       //Div Overlay "Active" State ClassNames (APPEND:-dimmed)
       splashDivOverlayClassName += "-dimmed";
-      aboutDivOverlayClassName += "-dimmed";
-      skillsDivOverlayClassName += "-dimmed";
-      projectsDivOverlayClassName += "-dimmed";
-      contactDivOverlayClassName += "-dimmed";
+      //aboutDivOverlayClassName += "-dimmed";
+      //skillsDivOverlayClassName += "-dimmed";
+      //projectsDivOverlayClassName += "-dimmed";
+      //contactDivOverlayClassName += "-dimmed";
 
       //Splash-Div stuff "Active" ClassNames
       splashGrettingClassName += "-dimmed";
@@ -165,19 +167,13 @@ class Home extends Component {
                 className={menuSelectionItemClassName}
                 onClick={this.scrollToIntroDivOnClick.bind(this)}
               >
-                Intro
+                Welcome
               </div>
               <div
                 className={menuSelectionItemClassName}
                 onClick={this.scrollToAboutDivOnClick.bind(this)}
               >
-                My Story
-              </div>
-              <div
-                className={menuSelectionItemClassName}
-                onClick={this.scrollToProjectsDivOnClick.bind(this)}
-              >
-                Activities
+                About Me
               </div>
               <div
                 className={menuSelectionItemClassName}
@@ -190,6 +186,12 @@ class Home extends Component {
                 onClick={this.scrollToProjectsDivOnClick.bind(this)}
               >
                 My Projects
+              </div>
+              <div
+                className={menuSelectionItemClassName}
+                onClick={this.scrollToProjectsDivOnClick.bind(this)}
+              >
+                Activities
               </div>
               <div
                 className={menuSelectionItemClassName}
