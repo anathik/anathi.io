@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+  -->
+  <link rel="manifest" href="http://localhost:3000/manifest.json">
+  <link rel="shortcut icon" href="http://localhost:3000/anathiIcon.jpg">
+
+  <!-- Local Assets Links -->
+
+  <!-- Material Icons Library 
+        IconFont dir: '../src/pages/main/App.css'
+        Local-path: '~/Documents/dev/devdownloads/material-design-icons/iconfont/{font-format}'
+  -->
+  <link href="./Anathi_files/icon" rel="stylesheet">
+  <link href="./Anathi_files/css" rel="stylesheet">
+
+  <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+  -->
+  <title>Anathi</title>
+<style type="text/css">body {
+    margin: 0;
+    padding: 0;
+}
+/**
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../common/material-design-icons/iconfont/MaterialIcons-Regular.eot"); 
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url("../../common/material-design-icons/iconfont/MaterialIcons-Regular.woff2")
+      format("woff2"),
+    url("../../common/material-design-icons/iconfont/MaterialIcons-Regular.woff")
+      format("woff"),
+    url()"..//material-design-icons/iconfont/MaterialIcons-Regular.ttf" format("truetype");
+}
++**/
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    -webkit-font-feature-settings: "liga";
+            font-feature-settings: "liga";
+}
+</style><style type="text/css">.Home {
+  width: 100vw;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  left: 0;
+  overflow-x: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.menu-button {
+  position: fixed;
+  display: -ms-flexbox;
+  display: flex;
+  height: 70px;
+  width: 70px;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.menu-button #menu-icon {
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 45px;
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  -ms-flex-pack: center;
+      justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-transition-property: color text-shadow;
+  -o-transition-property: color text-shadow;
+  transition-property: color text-shadow;
+  -webkit-transition-duration: 300ms;
+       -o-transition-duration: 300ms;
+          transition-duration: 300ms;
+}
+
+.menu-button #menu-icon-clicked {
+  font-size: 45px;
+  cursor: pointer;
+  -ms-flex-pack: center;
+      justify-content: center;
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.597);
+  color: rgba(255, 255, 255, 1);
+  -webkit-transition-property: color text-shadow;
+  -o-transition-property: color text-shadow;
+  transition-property: color text-shadow;
+  -webkit-transition-duration: 300ms;
+       -o-transition-duration: 300ms;
+          transition-duration: 300ms;
+}
+
+.page-menu {
+  top: 0;
+  right: 0;
+  position: absolute;
+  height: 100vh;
+  width: 220px;
+}
+
+.page-menu-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  -webkit-transform: translateX(-250px);
+      -ms-transform: translateX(-250px);
+          transform: translateX(-250px);
+  height: 100vh;
+  min-height: 650px;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.page-menu-visible {
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.page-menu-overlay,
+.page-menu-overlay-visible {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  height: 100vh;
+  min-height: 650px;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.856);
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 350ms;
+       -o-transition-duration: 350ms;
+          transition-duration: 350ms;
+}
+
+.page-menu-overlay-visible {
+  opacity: 1;
+}
+
+.page-menu-items {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1 1;
+      flex: 1 1;
+  min-height: 50px;
+}
+
+.page-div {
+  min-height: 650px;
+  height: 100vh;
+  top: 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.page-div#splash-div {
+  display: -ms-flexbox;
+  display: flex;
+  background: #fff;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.page-div-overlay,
+.page-div-overlay-dimmed {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  max-height: 100vh;
+  min-height: 650px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-transition-property: background;
+  -o-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.page-div-overlay-dimmed {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.page-logo-container,
+.page-logo-container-dimmed {
+  position: relative;
+  overflow: hidden;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  top: 20vh;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  right: 50vw;
+  left: 50vw;
+  background: rgba(49, 49, 49, 0.4);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.page-logo,
+.page-logo-dimmed {
+  opacity: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  height: 20vw;
+  width: 20vw;
+  margin: -5vw;
+  background-size: contain;
+  background-position: center;
+  opacity: 1;
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.page-logo-dimmed {
+  opacity: 0.5;
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.greeting,
+.greeting-dimmed {
+  position: relative;
+  cursor: default;
+  padding-top: 26vh;
+  left: 20vw;
+  max-width: 60vw;
+  right: 20vw;
+  text-align: center;
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+  letter-spacing: 14px;
+  font-size: 42px;
+  font-weight: 200;
+  font-family: "Quicksand", sans-serif;
+  opacity: 1;
+  -webkit-transition-property: opacity color transform;
+  -o-transition-property: opacity color transform;
+  transition-property: opacity color transform;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.greeting-dimmed {
+  color: rgba(255, 255, 255, 0.45);
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
+}
+.title,
+.title-dimmed {
+  padding-top: 5px;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  left: 20vw;
+  max-width: 60vw;
+  right: 20vw;
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 22px;
+  font-family: "Quicksand", sans-serif;
+  opacity: 1;
+  -webkit-transition-property: opacity color text-shadow;
+  -o-transition-property: opacity color text-shadow;
+  transition-property: opacity color text-shadow;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.title-dimmed {
+  color: rgba(255, 255, 255, 0.45);
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
+  opacity: 0.9;
+}
+.scrollTo-button-container,
+.scrollTo-button-container-dimmed {
+  overflow: hidden;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
+  color: rgba(255, 255, 255, 1);
+  bottom: 0;
+  -webkit-transform: translateX(0vw);
+      -ms-transform: translateX(0vw);
+          transform: translateX(0vw);
+  margin: 30vh 0 0 0;
+  width: 60vw;
+  right: 20vw;
+  left: 20vw;
+  min-height: 60px;
+  cursor: pointer;
+  opacity: 1;
+  -webkit-transition-property: opacity color text-shadow;
+  -o-transition-property: opacity color text-shadow;
+  transition-property: opacity color text-shadow;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.scrollTo-button-container-dimmed {
+  cursor: default;
+  color: rgba(255, 255, 255, 0.45);
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
+  opacity: 0.9;
+}
+
+.scrollTo-button-container-dimmed.scrollTo-about-button:hover {
+  -webkit-transform: translateY(1vh);
+      -ms-transform: translateY(1vh);
+          transform: translateY(1vh);
+}
+
+.scrollTo-text {
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Quicksand", sans-serif;
+  padding-bottom: 5px;
+}
+
+.material-icons#scrollTo-icon {
+  font-size: 30px;
+}
+
+.scrollTo-about-button {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-transform: translateY(none);
+      -ms-transform: translateY(none);
+          transform: translateY(none);
+  height: 100%;
+  min-width: 72px;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+}
+
+.scrollTo-about-button:hover {
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 400ms;
+       -o-transition-duration: 400ms;
+          transition-duration: 400ms;
+  -webkit-transform: translateY(3px);
+      -ms-transform: translateY(3px);
+          transform: translateY(3px);
+}
+</style><style type="text/css">.Home::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+}
+</style><style type="text/css">.menu-selection {
+  position: fixed;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  padding: 0 0 40px 18px;
+  background: rgba(0, 0, 0, 0);
+  top: 60px;
+  height: 40vh;
+  min-height: 650px;
+  width: 20vw;
+  min-width: 200px;
+}
+
+.menu-selection-intro {
+  display: -ms-flexbox;
+  display: flex;
+  background: rgba(255, 255, 255, 0.514);
+  height: 9%;
+}
+</style><style type="text/css">.App {
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+</style><script type="text/javascript" charset="utf-8" src="./Anathi_files/0.ef68a385dcdf1d61a0b4.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./Anathi_files/0.e19395e977b8ae4eeb33.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./Anathi_files/0.eee5cd143259c7108e50.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./Anathi_files/0.c8c0e30561eae9791002.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./Anathi_files/0.cad3fb4b8317283e9f36.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./Anathi_files/0.0bfacc7f7f067e57770d.hot-update.js"></script></head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"><div class="App"><div class="Home"><div class="page-div" id="splash-div" style="background-image: url(&quot;/static/media/nyc4.eadaa992.jpg&quot;);"><div class="page-div-overlay"><div class="menu-button"><i class="material-icons" id="menu-icon"></i></div><div class="menu-selection"><div class="menu-selection-intro"></div><div class="menu-line"></div><div class="menu-selection-aboutUs"></div><div class="menu-line"></div></div><div class="page-logo-container"><div class="page-logo" style="background-image: url(&quot;/static/media/anathiIconRedSquare.ceab0d66.jpg&quot;);"></div></div><div class="greeting">Hello. I'm Anathi</div><div class="title">Frontend Software Developer</div><div class="scrollTo-button-container"><div class="scrollTo-about-button"><div class="scrollTo-text">Scroll Down</div><i class="material-icons" id="scrollTo-icon"></i></div></div></div></div><div class="page-div" id="about-me-div"></div><div class="about-me-page-divider"><div class="about-me-page-divider-right"><div class="about-me-mosaic"></div></div><div class="about-me-page-divider-left"></div></div><div class="page-div" id="skills-div"></div><div class="page-div" id="projects-div"></div><div class="page-div" id="activities-div"></div><div class="page-div" id="contact-div"></div></div></div></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+<script type="text/javascript" src="./Anathi_files/bundle.js"></script>
+
+</body></html>

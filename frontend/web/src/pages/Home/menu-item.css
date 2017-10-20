@@ -1,0 +1,99 @@
+.menu-selection,
+.menu-selection-visible {
+  position: fixed;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 13vh 0 9vh 0;
+  top: 60px;
+  height: 90vh;
+  min-height: 650px;
+  opacity: 0;
+  width: 15vw;
+  min-width: 230px;
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-family: "Quicksand", sans-serif;
+  transform: translateX(-20vw);
+  transition-property: transform opacity;
+  transition-duration: 600ms;
+}
+.menu-selection-visible {
+  transition-property: transform opacity;
+  transform: translateX(0);
+  transition-duration: 600ms;
+  transition-delay: 150ms;
+  opacity: 1;
+}
+
+.menu-selection-item,
+.menu-selection-item-visible {
+  display: flex;
+  padding: 3vh 0 4vh 38px;
+  cursor: pointer;
+  align-items: center;
+  transform: translateX(-20vw);
+  opacity: 0;
+  transition-property: transform opacity;
+}
+.menu-selection-item-visible {
+  opacity: 1;
+  transition-property: transform opacity;
+  transition-duration: 500ms;
+}
+
+.menu-selection-item-visible:nth-child(1) {
+  transition-duration: 200ms;
+  transition-property: transform opacity;
+  opacity: 1;
+  transform: translateX(0);
+}
+.menu-selection-item-visible:nth-child(2) {
+  transition-duration: 200ms;
+  transition-property: transform opacity;
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu-selection-item-visible:nth-child(3) {
+  transition-duration: 200ms;
+  transition-property: transform opacity;
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu-selection-item-visible:nth-child(4) {
+  transition-duration: 200ms;
+  transition-property: transform opacity;
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu-selection-item-visible:nth-child(5) {
+  transition-duration: 200ms;
+  transition-property: transform opacity;
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu-selection-item-visible:nth-child(6) {
+  transition-duration: 200ms;
+  transition-property: transform opacity;
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu-selection-item-visible:nth-child(7) {
+  transition-duration: 200ms;
+  transition-property: transform opacity;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.menu-selection-item-visible:nth-child(1):hover,
+.menu-selection-item-visible:nth-child(2):hover,
+.menu-selection-item-visible:nth-child(3):hover,
+.menu-selection-item-visible:nth-child(4):hover,
+.menu-selection-item-visible:nth-child(5):hover,
+.menu-selection-item-visible:nth-child(6):hover,
+.menu-selection-item-visible:nth-child(7):hover {
+  transition-property: transform opacity text-shadow;
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.62);
+  transform: translateX(10px);
+}

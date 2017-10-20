@@ -1,25 +1,25 @@
+/* Main Page Settings */
 .Home {
   width: 100vw;
   display: flex;
+  position: absolute;
+  left: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   align-content: center;
 }
 
-.menu-bar {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 50px;
-  max-height: 50px;
-}
-
+/* Page Menu Sizing/Positioning/Click\Hover-Animation Settings */
+/* More Menu setting in ./menu-item.css */
 .menu-button {
   position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
-  height: 70px;
-  width: 70px;
+  height: 90px;
+  width: 90px;
   justify-content: center;
   align-items: center;
 }
@@ -27,8 +27,8 @@
 .menu-button #menu-icon {
   display: flex;
   font-size: 45px;
-  text-shadow: 1px 1px 10px rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
   justify-content: center;
   cursor: pointer;
   background: transparent;
@@ -40,67 +40,31 @@
 }
 
 .menu-button #menu-icon:hover {
+  transition-property: text-shadow color;
+  transition-duration: 200ms;
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.menu-button #menu-icon-clicked:hover {
+  transition-property: text-shadow color;
+  transition-duration: 300ms;
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.menu-button #menu-icon-clicked {
   font-size: 45px;
+  cursor: pointer;
   justify-content: center;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.397);
-  color: rgba(0, 0, 0, 0.8);
-  transition-property: color text-shadow;
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
+  transform: translateX(6px);
+  transition-property: color text-shadow transform;
   transition-duration: 300ms;
 }
 
-.page-menu {
-  top: 0;
-  right: 0;
-  position: absolute;
-  height: 100vh;
-  width: 220px;
-}
-
-.page-menu-container {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  transform: translateX(-250px);
-  height: 100vh;
-  min-height: 650px;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0);
-  transition-property: transform;
-  transition-duration: 400ms;
-}
-
-.page-menu-visible {
-  transform: translateX(0px);
-}
-
-.page-menu-overlay,
-.page-menu-overlay-visible {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  opacity: 0;
-  height: 100vh;
-  min-height: 650px;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.856);
-  transition-property: opacity;
-  transition-duration: 350ms;
-}
-
-.page-menu-overlay-visible {
-  opacity: 1;
-}
-
-.page-menu-items {
-  display: flex;
-  flex: 1;
-  min-height: 50px;
-}
-
+/* Div Sizing/Image Settings */
 .page-div {
   min-height: 650px;
   height: 100vh;
@@ -108,21 +72,40 @@
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.7);
 }
-
-.page-div#splash-div {
+.page-div#splash-div,
+.page-div#about-me-div,
+.page-div#skills-div,
+.page-div#projects-div,
+.page-div#activities-div,
+.page-div#contact-div {
   display: flex;
-  background: #fff;
-  background-size: 100vw;
   background-repeat: no-repeat;
   background-position: center;
   justify-content: center;
   align-content: center;
 }
 
-.page-div-overlay,
-.page-div-overlay-dimmed {
+/* Div Background Color Settings */
+.page-div#about-me-div {
+  background: rgba(7, 5, 5, 0.822);
+}
+.page-div#skills-div {
+  background: rgba(59, 204, 168, 0.692);
+}
+.page-div#projects-div {
+  background: rgba(50, 115, 255, 0.4);
+}
+.page-div#activities-div {
+  background: rgba(255, 7, 61, 0.7);
+}
+.page-div#contact-div {
+  background: rgba(151, 103, 12, 0.7);
+}
+
+/* Div Overlay Opacity Settings */
+.splash-div-overlay,
+.splash-div-overlay-dimmed {
   position: absolute;
   overflow: hidden;
   top: 0;
@@ -131,14 +114,17 @@
   min-height: 650px;
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
-  transition-property: background;
-  transition-duration: 400ms;
+  transition-property: opacity background;
+  transition-duration: 500ms;
+}
+.splash-div-overlay-dimmed {
+  transition-property: opacity background;
+  transition-duration: 500ms;
+  background: rgba(0, 0, 0, 0.76);
 }
 
-.page-div-overlay-dimmed {
-  background: rgba(0, 0, 0, 0.7);
-}
-
+/* All Splash Div Asset Settings */
+/* Logo */
 .page-logo-container,
 .page-logo-container-dimmed {
   position: relative;
@@ -151,11 +137,15 @@
   transform: translateX(-50%);
   right: 50vw;
   left: 50vw;
-  background: rgba(49, 49, 49, 0.4);
-  transition-property: transform;
-  transition-duration: 400ms;
+  background: rgba(49, 49, 49, 0.7);
+  transition-property: background;
+  transition-duration: 500ms;
 }
-
+.page-logo-container-dimmed {
+  background: rgba(49, 49, 49, 0.54);
+  transition-property: background;
+  transition-duration: 500ms;
+}
 .page-logo,
 .page-logo-dimmed {
   opacity: 1;
@@ -168,92 +158,117 @@
   background-position: center;
   opacity: 1;
   transition-property: opacity;
-  transition-duration: 400ms;
+  transition-duration: 500ms;
 }
-
 .page-logo-dimmed {
-  opacity: 0.5;
+  opacity: 0.3;
   transition-property: opacity;
-  transition-duration: 400ms;
+  transition-duration: 500ms;
 }
 
+/* Greeting */
 .greeting,
 .greeting-dimmed {
   position: relative;
   cursor: default;
-  padding-top: 28vh;
+  overflow: visible;
+  white-space: nowrap;
+  padding-top: 26vh;
+  left: 20vw;
+  max-width: 60vw;
+  right: 20vw;
   text-align: center;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.22);
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
   color: rgba(255, 255, 255, 1);
   text-transform: uppercase;
-  letter-spacing: 12px;
-  font-size: 42px;
+  letter-spacing: 14px;
+  font-size: 3vw;
   font-weight: 200;
   font-family: "Quicksand", sans-serif;
   opacity: 1;
-  transition-property: opacity color transform;
-  transition-duration: 400ms;
+  transition-property: opacity color text-shadow;
+  transition-duration: 500ms;
+}
+.greeting-dimmed {
+  color: rgba(255, 255, 255, 0.25);
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
+  transition-property: color text-shadow;
+  transition-duration: 500ms;
 }
 
-.greeting-dimmed {
-  color: rgba(255, 255, 255, 0.6);
-}
+/* Title */
 .title,
 .title-dimmed {
-  padding: 2vh 0 10vh 0;
+  padding-top: 5px;
   position: relative;
   text-align: center;
+  white-space: nowrap;
   cursor: default;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.22);
-  color: rgba(255, 255, 255, 1);
+  left: 20vw;
+  max-width: 60vw;
+  right: 20vw;
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
-  letter-spacing: 12px;
-  font-size: 28px;
+  letter-spacing: 6px;
+  font-size: 1.3vw;
   font-family: "Quicksand", sans-serif;
   opacity: 1;
-  transition-property: opacity color transform;
-  transition-duration: 400ms;
+  transition-property: opacity color text-shadow;
+  transition-duration: 500ms;
+}
+.title-dimmed {
+  color: rgba(255, 255, 255, 0.25);
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
+  transition-property: color text-shadow;
+  transition-duration: 500ms;
 }
 
-.title-dimmed {
-  color: rgba(255, 255, 255, 0.6);
-}
+/* Scroll Down Button */
 .scrollTo-button-container,
 .scrollTo-button-container-dimmed {
   overflow: hidden;
+  position: relative;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.22);
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
   color: rgba(255, 255, 255, 1);
   bottom: 0;
   transform: translateX(0vw);
-  margin: 15vh 0 10vh 0;
-  width: 100%;
-  height: 10vh;
+  margin: 30vh 0 0 0;
+  width: 60vw;
+  right: 20vw;
+  left: 20vw;
   min-height: 60px;
+  cursor: pointer;
   opacity: 1;
-  transition-property: opacity color transform;
-  transition-duration: 400ms;
+  transition-property: opacity color text-shadow;
+  transition-duration: 500ms;
 }
-
 .scrollTo-button-container-dimmed {
-  color: rgba(255, 255, 255, 0.6);
+  cursor: default;
+  color: rgba(255, 255, 255, 0.45);
+  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
+  transition-property: color text-shadow;
+  transition-duration: 500ms;
 }
-
+.scrollTo-button-container-dimmed.scrollTo-about-button:hover {
+  transition-property: transform;
+  transition-duration: 500ms;
+  transform: translateY(0);
+}
 .scrollTo-text {
-  font-size: 16px;
-  letter-spacing: 1px;
+  font-size: 1vw;
+  letter-spacing: 2px;
   text-transform: uppercase;
   font-family: "Quicksand", sans-serif;
   padding-bottom: 5px;
 }
-
 .material-icons#scrollTo-icon {
   font-size: 30px;
 }
-
 .scrollTo-about-button {
   display: flex;
   flex-direction: column;
@@ -261,14 +276,12 @@
   align-items: center;
   transform: translateY(none);
   height: 100%;
-  cursor: pointer;
   min-width: 72px;
   transition-property: transform;
-  transition-duration: 400ms;
+  transition-duration: 200ms;
 }
-
 .scrollTo-about-button:hover {
   transition-property: transform;
-  transition-duration: 400ms;
+  transition-duration: 200ms;
   transform: translateY(1vh);
 }
