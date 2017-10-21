@@ -10,6 +10,11 @@
   justify-content: center;
   align-content: center;
 }
+.screen-top-position {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
 /* Page Menu Sizing/Positioning/Click\Hover-Animation Settings */
 /* More Menu setting in ./menu-item.css */
@@ -110,11 +115,10 @@
   overflow: hidden;
   top: 0;
   width: 100%;
-  max-height: 100vh;
   min-height: 650px;
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
-  transition-property: opacity background;
+  transition-property: opacity background height;
   transition-duration: 500ms;
 }
 .splash-div-overlay-dimmed {

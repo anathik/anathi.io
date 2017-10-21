@@ -10,7 +10,7 @@
   opacity: 0;
   width: 15vw;
   min-width: 230px;
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   letter-spacing: 4px;
   font-size: 13px;
@@ -45,43 +45,43 @@
 
 .menu-selection-item-visible:nth-child(1) {
   transition-duration: 200ms;
-  transition-property: transform opacity;
+  transition-property: transform opacity color;
   opacity: 1;
   transform: translateX(0);
 }
 .menu-selection-item-visible:nth-child(2) {
   transition-duration: 200ms;
-  transition-property: transform opacity;
+  transition-property: transform opacity color;
   transform: translateX(0);
   opacity: 1;
 }
 .menu-selection-item-visible:nth-child(3) {
   transition-duration: 200ms;
-  transition-property: transform opacity;
+  transition-property: transform opacity color;
   transform: translateX(0);
   opacity: 1;
 }
 .menu-selection-item-visible:nth-child(4) {
   transition-duration: 200ms;
-  transition-property: transform opacity;
+  transition-property: transform opacity color;
   transform: translateX(0);
   opacity: 1;
 }
 .menu-selection-item-visible:nth-child(5) {
   transition-duration: 200ms;
-  transition-property: transform opacity;
+  transition-property: transform opacity color;
   transform: translateX(0);
   opacity: 1;
 }
 .menu-selection-item-visible:nth-child(6) {
   transition-duration: 200ms;
-  transition-property: transform opacity;
+  transition-property: transform opacity color;
   transform: translateX(0);
   opacity: 1;
 }
 .menu-selection-item-visible:nth-child(7) {
   transition-duration: 200ms;
-  transition-property: transform opacity;
+  transition-property: transform opacity color;
   transform: translateX(0);
   opacity: 1;
 }
@@ -93,7 +93,9 @@
 .menu-selection-item-visible:nth-child(5):hover,
 .menu-selection-item-visible:nth-child(6):hover,
 .menu-selection-item-visible:nth-child(7):hover {
-  transition-property: transform opacity text-shadow;
-  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.62);
+  transition-property: transform opacity color text-shadow;
+  text-shadow: 1px 1px 7px rgba(219, 219, 219, 0.42);
   transform: translateX(10px);
+  transition-duration: 400ms;
+  color: rgb(255, 255, 255);
 }

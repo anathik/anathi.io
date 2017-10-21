@@ -17,6 +17,7 @@ class Home extends Component {
     };
   }
 
+  // Menu Stuff
   toggleMenuOnClick() {
     if (this.state.visible === false) {
       this.setState({ visible: true });
@@ -36,6 +37,69 @@ class Home extends Component {
     }
   }
 
+  // Finding Current Div
+  findCurrentPageDiv() {
+    let element = document.getElementById("contact-div");
+    let position = element.getBoundingClientRect();
+    let y = position.bottom;
+    let myScreen = document.getElementById("screen-top-position");
+    let myScreenPosition = myScreen.getBoundingClientRect();
+    let pixelsFromTop = Math.abs(myScreenPosition.bottom);
+    let pageHeight = y + pixelsFromTop;
+
+    let splashDivPosistion = 0;
+    let halfDivHeight = pageHeight / 3;
+    let aboutDivPosistion = pageHeight / 6;
+    let skillsDivPosistion = pageHeight / 6 * 2;
+    let projectsDivPosistion = pageHeight / 6 * 3;
+    let activitiesDivPosistion = pageHeight / 6 * 4;
+    let contactDivPosistion = pageHeight / 6 * 5;
+
+    /*
+    if (pixelsFromTop >= Math.trunc(aboutDivPosistion * 0.6)) {
+    }
+    if (
+      pixelsFromTop < Math.trunc(aboutDivPosistion * 0.4) &&
+      pixelsFromTop <= skillsDivPosistion - (aboutDivPosistion - halfDivHeight)
+    ) {
+    }
+    if (
+      pixelsFromTop >= Math.trunc(skillsDivPosistion * 0.4) &&
+      pixelsFromTop <= skillsDivPosistion - ( - halfDivHeight)
+    ) {
+    }
+    */
+
+    console.log("The length of the page in pixels = " + pageHeight);
+    console.log(
+      "The top of you perspective is " +
+        pixelsFromTop +
+        " pixels from the top of the page"
+    );
+    console.log(
+      "The splash div starts at the pixel value " + splashDivPosistion + "px"
+    );
+    console.log(
+      "The about-me div starts at the pixel value " + aboutDivPosistion + "px"
+    );
+    console.log(
+      "The skills div starts at the pixel value " + skillsDivPosistion + "px"
+    );
+    console.log(
+      "The projects div starts at the pixel value " +
+        projectsDivPosistion +
+        "px"
+    );
+    console.log(
+      "The activities div starts at the pixel value " +
+        activitiesDivPosistion +
+        "px"
+    );
+    console.log(
+      "The contact div starts at the pixel value " + contactDivPosistion + "px"
+    );
+  }
+
   // Only for the "Scroll Down" Button
   scrollDownOnClick() {
     if (this.state.visible === true) {
@@ -52,7 +116,9 @@ class Home extends Component {
     }
   }
 
+  // Specific Div Scrolling
   scrollToIntroDivOnClick() {
+    this.findCurrentPageDiv();
     this.setState({ visible: false });
     scrollToComponent(document.getElementById("splash-div"), {
       offset: 0,
@@ -145,6 +211,7 @@ class Home extends Component {
     return (
       <div className="Home">
         {/* Splash Div */}
+        <div id="screen-top-position" />
         <div
           className="page-div"
           id="splash-div"
@@ -189,7 +256,7 @@ class Home extends Component {
               </div>
               <div
                 className={menuSelectionItemClassName}
-                onClick={this.scrollToProjectsDivOnClick.bind(this)}
+                onClick={this.scrollToActivitiesDivOnClick.bind(this)}
               >
                 Activities
               </div>
