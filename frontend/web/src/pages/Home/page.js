@@ -13,11 +13,79 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      visible: false
+      visible: false,
+      perspective: ""
     };
   }
 
-  // Menu Stuff
+  perspectiveDidChange() {}
+
+  componentDidMount() {
+    let ticking = false;
+
+    window.addEventListener("scroll", e => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          this.readScreenHeight();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+
+  readScreenHeight() {
+    let yMax = document.getElementById("contact-div").getBoundingClientRect();
+    let pageLength = Math.abs(yMax.top);
+    let myScreen = document
+      .getElementById("screen-top-position")
+      .getBoundingClientRect();
+    let screenPerspective = Math.abs(myScreen.top);
+    let divLength = pageLength / 6;
+    let divThird = divLength * 0.3;
+    let divSeventh = divLength * 0.7;
+
+    if (screenPerspective >= 0 && screenPerspective < divLength - divThird) {
+      this.setState({ perspective: "menu-select-intro" });
+      console.log(pageLength);
+    }
+    if (
+      screenPerspective >= divLength - divThird &&
+      screenPerspective < divLength * 2 - divThird
+    ) {
+      this.setState({ perspective: "menu-select-about" });
+      console.log(pageLength);
+    }
+    if (
+      screenPerspective >= divLength * 2 - divThird &&
+      screenPerspective < divLength * 3 - divThird
+    ) {
+      this.setState({ perspective: "menu-select-skills" });
+      console.log(pageLength);
+    }
+    if (
+      screenPerspective >= divLength * 3 - divThird &&
+      screenPerspective < divLength * 4 - divThird
+    ) {
+      this.setState({ perspective: "menu-select-projects" });
+      console.log(pageLength);
+    }
+    if (
+      screenPerspective >= divLength * 4 - divThird &&
+      screenPerspective < divLength * 5 - divThird
+    ) {
+      this.setState({ perspective: "menu-select-activities" });
+      console.log(pageLength);
+    }
+    if (
+      screenPerspective >= divLength * 5 - divThird &&
+      screenPerspective < pageLength
+    ) {
+      this.setState({ perspective: "menu-select-contact" });
+      console.log(pageLength);
+    }
+  }
+
   toggleMenuOnClick() {
     if (this.state.visible === false) {
       this.setState({ visible: true });
@@ -35,69 +103,6 @@ class Home extends Component {
     if (this.state.visible === false) {
       this.setState({ visible: true });
     }
-  }
-
-  // Finding Current Div
-  findCurrentPageDiv() {
-    let element = document.getElementById("contact-div");
-    let position = element.getBoundingClientRect();
-    let y = position.bottom;
-    let myScreen = document.getElementById("screen-top-position");
-    let myScreenPosition = myScreen.getBoundingClientRect();
-    let pixelsFromTop = Math.abs(myScreenPosition.bottom);
-    let pageHeight = y + pixelsFromTop;
-
-    let splashDivPosistion = 0;
-    let halfDivHeight = pageHeight / 3;
-    let aboutDivPosistion = pageHeight / 6;
-    let skillsDivPosistion = pageHeight / 6 * 2;
-    let projectsDivPosistion = pageHeight / 6 * 3;
-    let activitiesDivPosistion = pageHeight / 6 * 4;
-    let contactDivPosistion = pageHeight / 6 * 5;
-
-    /*
-    if (pixelsFromTop >= Math.trunc(aboutDivPosistion * 0.6)) {
-    }
-    if (
-      pixelsFromTop < Math.trunc(aboutDivPosistion * 0.4) &&
-      pixelsFromTop <= skillsDivPosistion - (aboutDivPosistion - halfDivHeight)
-    ) {
-    }
-    if (
-      pixelsFromTop >= Math.trunc(skillsDivPosistion * 0.4) &&
-      pixelsFromTop <= skillsDivPosistion - ( - halfDivHeight)
-    ) {
-    }
-    */
-
-    console.log("The length of the page in pixels = " + pageHeight);
-    console.log(
-      "The top of you perspective is " +
-        pixelsFromTop +
-        " pixels from the top of the page"
-    );
-    console.log(
-      "The splash div starts at the pixel value " + splashDivPosistion + "px"
-    );
-    console.log(
-      "The about-me div starts at the pixel value " + aboutDivPosistion + "px"
-    );
-    console.log(
-      "The skills div starts at the pixel value " + skillsDivPosistion + "px"
-    );
-    console.log(
-      "The projects div starts at the pixel value " +
-        projectsDivPosistion +
-        "px"
-    );
-    console.log(
-      "The activities div starts at the pixel value " +
-        activitiesDivPosistion +
-        "px"
-    );
-    console.log(
-      "The contact div starts at the pixel value " + contactDivPosistion + "px"
-    );
   }
 
   // Only for the "Scroll Down" Button
@@ -118,7 +123,7 @@ class Home extends Component {
 
   // Specific Div Scrolling
   scrollToIntroDivOnClick() {
-    this.findCurrentPageDiv();
+    this.readScreenHeight();
     this.setState({ visible: false });
     scrollToComponent(document.getElementById("splash-div"), {
       offset: 0,
@@ -171,7 +176,13 @@ class Home extends Component {
     //Page Menu stuff "Dormant" State ClassNames
     let pageMenuButtonIdName = "menu-icon";
     let menuSelectionClassName = "menu-selection";
-    let menuSelectionItemClassName = "menu-selection-item";
+
+    let menuIntroClassName = "menu-select-intro";
+    let menuAboutClassName = "menu-select-about";
+    let menuSkillsClassName = "menu-select-skills";
+    let menuProjectsClassName = "menu-select-projects";
+    let menuActivitiesClassName = "menu-select-activities";
+    let menuContactClassName = "menu-select-contact";
 
     //Div Overlay "Dormant" ClassNames
     let splashDivOverlayClassName = "splash-div-overlay";
@@ -188,10 +199,16 @@ class Home extends Component {
     let scrollDivClassName = "scrollTo-button-container";
 
     if (this.state.visible === true) {
+      console.log(this.state.perspective);
       //Page Menu stuff "Active" State ClassNames (APPEND:-clicked/-visible)
       pageMenuButtonIdName += "-clicked";
       menuSelectionClassName += "-visible";
-      menuSelectionItemClassName += "-visible";
+      menuIntroClassName += "-visible";
+      menuAboutClassName += "-visible";
+      menuSkillsClassName += "-visible";
+      menuProjectsClassName += "-visible";
+      menuActivitiesClassName += "-visible";
+      menuContactClassName += "-visible";
 
       //Div Overlay "Active" State ClassNames (APPEND:-dimmed)
       splashDivOverlayClassName += "-dimmed";
@@ -209,7 +226,7 @@ class Home extends Component {
     }
 
     return (
-      <div className="Home">
+      <div className="Home" onLoad={this.componentDidMount}>
         {/* Splash Div */}
         <div id="screen-top-position" />
         <div
@@ -219,7 +236,7 @@ class Home extends Component {
         >
           <div
             className={splashDivOverlayClassName}
-            onClick={this.closeMenuOnClick.bind(this)}
+            onClick={this.readScreenHeight.bind(this)}
           >
             <div
               className="menu-button"
@@ -231,37 +248,37 @@ class Home extends Component {
             </div>
             <div className={menuSelectionClassName}>
               <div
-                className={menuSelectionItemClassName}
+                className={menuIntroClassName}
                 onClick={this.scrollToIntroDivOnClick.bind(this)}
               >
-                Welcome
+                Intro
               </div>
               <div
-                className={menuSelectionItemClassName}
+                className={menuAboutClassName}
                 onClick={this.scrollToAboutDivOnClick.bind(this)}
               >
                 About Me
               </div>
               <div
-                className={menuSelectionItemClassName}
+                className={menuSkillsClassName}
                 onClick={this.scrollToSkillsDivOnClick.bind(this)}
               >
                 My Skills
               </div>
               <div
-                className={menuSelectionItemClassName}
+                className={menuProjectsClassName}
                 onClick={this.scrollToProjectsDivOnClick.bind(this)}
               >
                 My Projects
               </div>
               <div
-                className={menuSelectionItemClassName}
+                className={menuActivitiesClassName}
                 onClick={this.scrollToActivitiesDivOnClick.bind(this)}
               >
                 Activities
               </div>
               <div
-                className={menuSelectionItemClassName}
+                className={menuContactClassName}
                 onClick={this.scrollToContactDivOnClick.bind(this)}
               >
                 Contact Me
@@ -318,6 +335,10 @@ class Home extends Component {
         <div className="page-div" id="contact-div" />
       </div>
     );
+  }
+
+  newFunction() {
+    return this;
   }
 }
 
