@@ -23,7 +23,6 @@
   transition-property: transform opacity;
   transform: translateX(0);
   transition-duration: 600ms;
-  transition-delay: 150ms;
   opacity: 1;
 }
 
@@ -38,24 +37,20 @@
 .menu-select-skills-visible,
 .menu-select-projects-visible,
 .menu-select-activities-visible,
-.menu-select-contact-visible {
+.menu-select-contact-visible,
+.menu-select-intro-current,
+.menu-select-about-current,
+.menu-select-skills-current,
+.menu-select-projects-current,
+.menu-select-activities-current,
+.menu-select-contact-current {
   display: flex;
-  padding: 3vh 0 4vh 38px;
+  padding: 3vh 0 4vh 20px;
   cursor: pointer;
   align-items: center;
   transform: translateX(-20vw);
   opacity: 0;
   transition-property: transform opacity;
-}
-.menu-select-intro-visible,
-.menu-select-about-visible,
-.menu-select-skills-visible,
-.menu-select-projects-visible,
-.menu-select-activities-visible,
-.menu-select-contact-visible {
-  opacity: 1;
-  transition-property: transform opacity;
-  transition-duration: 500ms;
 }
 
 .menu-select-intro-visible,
@@ -64,8 +59,8 @@
 .menu-select-projects-visible,
 .menu-select-activities-visible,
 .menu-select-contact-visible {
-  transition-duration: 200ms;
   transition-property: transform opacity color;
+  transition-duration: 500ms;
   transform: translateX(0);
   opacity: 1;
 }
@@ -81,4 +76,22 @@
   transform: translateX(10px);
   transition-duration: 400ms;
   color: rgb(255, 255, 255);
+}
+
+.menu-select-intro-current-visible,
+.menu-select-about-current-visible,
+.menu-select-skills-current-visible,
+.menu-select-projects-current-visible,
+.menu-select-activities-current-visible,
+.menu-select-contact-current-visible {
+  display: flex;
+  padding: 3vh 0 4vh 38px;
+  cursor: default;
+  align-items: center;
+  transition-duration: 300ms;
+  transform: translateX(10px);
+  opacity: 1;
+  transition-property: transform opacity color text-shadow border;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 7px rgba(219, 219, 219, 0.42);
 }

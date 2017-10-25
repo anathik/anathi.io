@@ -35,54 +35,28 @@ class Home extends Component {
   }
 
   readScreenHeight() {
-    let yMax = document.getElementById("contact-div").getBoundingClientRect();
-    let pageLength = Math.abs(yMax.top);
-    let myScreen = document
-      .getElementById("screen-top-position")
+    let getPixels = document
+      .getElementsByClassName("Home")[0]
       .getBoundingClientRect();
-    let screenPerspective = Math.abs(myScreen.top);
-    let divLength = pageLength / 6;
-    let divThird = divLength * 0.3;
-    let divSeventh = divLength * 0.7;
-
-    if (screenPerspective >= 0 && screenPerspective < divLength - divThird) {
+    let divLength = getPixels.height / 6;
+    let location = Math.abs(getPixels.top);
+    if (location >= 0 && location < divLength) {
       this.setState({ perspective: "menu-select-intro" });
-      console.log(pageLength);
     }
-    if (
-      screenPerspective >= divLength - divThird &&
-      screenPerspective < divLength * 2 - divThird
-    ) {
+    if (location >= divLength && location < 2 * divLength) {
       this.setState({ perspective: "menu-select-about" });
-      console.log(pageLength);
     }
-    if (
-      screenPerspective >= divLength * 2 - divThird &&
-      screenPerspective < divLength * 3 - divThird
-    ) {
+    if (location >= 2 * divLength && location < 3 * divLength) {
       this.setState({ perspective: "menu-select-skills" });
-      console.log(pageLength);
     }
-    if (
-      screenPerspective >= divLength * 3 - divThird &&
-      screenPerspective < divLength * 4 - divThird
-    ) {
+    if (location >= 3 * divLength && location < 4 * divLength) {
       this.setState({ perspective: "menu-select-projects" });
-      console.log(pageLength);
     }
-    if (
-      screenPerspective >= divLength * 4 - divThird &&
-      screenPerspective < divLength * 5 - divThird
-    ) {
+    if (location >= 4 * divLength && location < 4.9 * divLength) {
       this.setState({ perspective: "menu-select-activities" });
-      console.log(pageLength);
     }
-    if (
-      screenPerspective >= divLength * 5 - divThird &&
-      screenPerspective < pageLength
-    ) {
+    if (location >= 4.9 * divLength && location < 6 * divLength) {
       this.setState({ perspective: "menu-select-contact" });
-      console.log(pageLength);
     }
   }
 
@@ -108,11 +82,9 @@ class Home extends Component {
   // Only for the "Scroll Down" Button
   scrollDownOnClick() {
     if (this.state.visible === true) {
-      console.log("Hovered. Will scroll on a second click.");
       this.setState({ visible: false });
     }
     if (this.state.visible === false) {
-      console.log("Not hovered. Scroll enabled");
       scrollToComponent(document.getElementById("about-me-div"), {
         offset: 0,
         align: "top",
@@ -123,53 +95,65 @@ class Home extends Component {
 
   // Specific Div Scrolling
   scrollToIntroDivOnClick() {
-    this.readScreenHeight();
-    this.setState({ visible: false });
-    scrollToComponent(document.getElementById("splash-div"), {
-      offset: 0,
-      align: "top",
-      duration: 600
-    });
+    if (this.state.perspective !== "menu-select-intro") {
+      scrollToComponent(document.getElementById("splash-div"), {
+        offset: 0,
+        align: "top",
+        duration: 600
+      });
+      this.setState({ visible: false });
+    }
   }
   scrollToAboutDivOnClick() {
-    this.setState({ visible: false });
-    scrollToComponent(document.getElementById("about-me-div"), {
-      offset: 0,
-      align: "top",
-      duration: 600
-    });
+    if (this.state.perspective !== "menu-select-about") {
+      scrollToComponent(document.getElementById("about-me-div"), {
+        offset: 0,
+        align: "top",
+        duration: 600
+      });
+      this.setState({ visible: false });
+    }
   }
   scrollToSkillsDivOnClick() {
-    this.setState({ visible: false });
-    scrollToComponent(document.getElementById("skills-div"), {
-      offset: 0,
-      align: "top",
-      duration: 600
-    });
+    if (this.state.perspective !== "menu-select-skills") {
+      scrollToComponent(document.getElementById("skills-div"), {
+        offset: 0,
+        align: "top",
+        duration: 600
+      });
+      this.setState({ visible: false });
+    }
   }
   scrollToProjectsDivOnClick() {
-    this.setState({ visible: false });
-    scrollToComponent(document.getElementById("projects-div"), {
-      offset: 0,
-      align: "top",
-      duration: 600
-    });
+    if (this.state.perspective !== "menu-select-projects") {
+      scrollToComponent(document.getElementById("projects-div"), {
+        offset: 0,
+        align: "top",
+        duration: 600
+      });
+      this.setState({ visible: false });
+    }
   }
   scrollToActivitiesDivOnClick() {
+    if (this.state.perspective !== "menu-select-activities") {
+      scrollToComponent(document.getElementById("activities-div"), {
+        offset: 0,
+        align: "top",
+        duration: 600
+      });
+    }
     this.setState({ visible: false });
-    scrollToComponent(document.getElementById("activities-div"), {
-      offset: 0,
-      align: "top",
-      duration: 600
-    });
   }
   scrollToContactDivOnClick() {
     this.setState({ visible: false });
-    scrollToComponent(document.getElementById("contact-div"), {
-      offset: 0,
-      align: "top",
-      duration: 600
-    });
+    if (this.state.perspective !== "menu-select-contact") {
+      scrollToComponent(document.getElementById("contact-div"), {
+        offset: 0,
+        align: "top",
+        duration: 600
+      });
+      this.setState({ visible: false });
+    }
   }
 
   render() {
@@ -198,8 +182,26 @@ class Home extends Component {
     let pageLogoContainerClassName = "page-logo-container";
     let scrollDivClassName = "scrollTo-button-container";
 
+    if (this.state.perspective === menuIntroClassName) {
+      menuIntroClassName += "-current";
+    }
+    if (this.state.perspective === menuAboutClassName) {
+      menuAboutClassName += "-current";
+    }
+    if (this.state.perspective === menuSkillsClassName) {
+      menuSkillsClassName += "-current";
+    }
+    if (this.state.perspective === menuProjectsClassName) {
+      menuProjectsClassName += "-current";
+    }
+    if (this.state.perspective === menuActivitiesClassName) {
+      menuActivitiesClassName += "-current";
+    }
+    if (this.state.perspective === menuContactClassName) {
+      menuContactClassName += "-current";
+    }
+
     if (this.state.visible === true) {
-      console.log(this.state.perspective);
       //Page Menu stuff "Active" State ClassNames (APPEND:-clicked/-visible)
       pageMenuButtonIdName += "-clicked";
       menuSelectionClassName += "-visible";
@@ -251,37 +253,37 @@ class Home extends Component {
                 className={menuIntroClassName}
                 onClick={this.scrollToIntroDivOnClick.bind(this)}
               >
-                Intro
+                <div>Intro</div>
               </div>
               <div
                 className={menuAboutClassName}
                 onClick={this.scrollToAboutDivOnClick.bind(this)}
               >
-                About Me
+                <div>About Me</div>
               </div>
               <div
                 className={menuSkillsClassName}
                 onClick={this.scrollToSkillsDivOnClick.bind(this)}
               >
-                My Skills
+                <div>My Skills</div>
               </div>
               <div
                 className={menuProjectsClassName}
                 onClick={this.scrollToProjectsDivOnClick.bind(this)}
               >
-                My Projects
+                <div>My Projects</div>
               </div>
               <div
                 className={menuActivitiesClassName}
                 onClick={this.scrollToActivitiesDivOnClick.bind(this)}
               >
-                Activities
+                <div>Activities</div>
               </div>
               <div
                 className={menuContactClassName}
                 onClick={this.scrollToContactDivOnClick.bind(this)}
               >
-                Contact Me
+                <div>Contact Me</div>
               </div>
             </div>
             <div
@@ -335,10 +337,6 @@ class Home extends Component {
         <div className="page-div" id="contact-div" />
       </div>
     );
-  }
-
-  newFunction() {
-    return this;
   }
 }
 
