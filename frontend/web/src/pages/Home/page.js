@@ -324,11 +324,11 @@ class Home extends Component {
           </div>
         </div>
         <div className="page-div" id="about-me-div">
-          <div className="about-me-page-divider">
-            <div className="about-me-page-divider-right">
+          <div className="about-me-page-overlay">
+            <div className="about-me-page-divider-left">
               <div className="about-me-mosaic">{/* Top right */}</div>
             </div>
-            <div className="about-me-page-divider-left" />
+            <div className="about-me-page-divider-right" />
           </div>
         </div>
         <div className="page-div" id="skills-div" />
