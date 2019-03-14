@@ -4,18 +4,14 @@
   flex-direction: column;
   box-sizing: border-box;
   padding: 13vh 0 9vh 0;
-  top: 60px;
-  height: 90vh;
-  min-height: 650px;
-  opacity: 0;
-  width: 15vw;
+  height: 100vh;
+  width: 5vw;
   min-width: 230px;
   color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   letter-spacing: 4px;
   font-size: 13px;
-  font-family: "Quicksand", sans-serif;
-  transform: translateX(-20vw);
+  font-family: 'Quicksand', sans-serif;
   transition-property: transform opacity;
   transition-duration: 600ms;
 }
@@ -32,12 +28,6 @@
 .menu-select-projects,
 .menu-select-activities,
 .menu-select-contact,
-.menu-select-intro-visible,
-.menu-select-about-visible,
-.menu-select-skills-visible,
-.menu-select-projects-visible,
-.menu-select-activities-visible,
-.menu-select-contact-visible,
 .menu-select-intro-current,
 .menu-select-about-current,
 .menu-select-skills-current,
@@ -45,32 +35,32 @@
 .menu-select-activities-current,
 .menu-select-contact-current {
   display: flex;
-  padding: 3vh 0 4vh 20px;
+  padding: 2vh 0px 2vh 20px;
   cursor: pointer;
   align-items: center;
-  transform: translateX(-20vw);
-  opacity: 0;
+  transform: translateX(0);
+  opacity: 1;
   transition-property: transform opacity;
 }
 
-.menu-select-intro-visible,
-.menu-select-about-visible,
-.menu-select-skills-visible,
-.menu-select-projects-visible,
-.menu-select-activities-visible,
-.menu-select-contact-visible {
+.menu-select-intro,
+.menu-select-about,
+.menu-select-skills,
+.menu-select-projects,
+.menu-select-activities,
+.menu-select-contact {
   transition-property: transform opacity color;
   transition-duration: 500ms;
   transform: translateX(0);
   opacity: 1;
 }
 
-.menu-select-intro-visible:hover,
-.menu-select-about-visible:hover,
-.menu-select-skills-visible:hover,
-.menu-select-projects-visible:hover,
-.menu-select-activities-visible:hover,
-.menu-select-contact-visible:hover {
+.menu-select-intro:hover,
+.menu-select-about:hover,
+.menu-select-skills:hover,
+.menu-select-projects:hover,
+.menu-select-activities:hover,
+.menu-select-contact:hover {
   transition-property: transform opacity color text-shadow;
   text-shadow: 1px 1px 7px rgba(219, 219, 219, 0.42);
   transform: translateX(10px);
@@ -78,14 +68,14 @@
   color: rgb(255, 255, 255);
 }
 
-.menu-select-intro-current-visible,
-.menu-select-about-current-visible,
-.menu-select-skills-current-visible,
-.menu-select-projects-current-visible,
-.menu-select-activities-current-visible,
-.menu-select-contact-current-visible {
+.menu-select-intro-current,
+.menu-select-about-current,
+.menu-select-skills-current,
+.menu-select-projects-current,
+.menu-select-activities-current,
+.menu-select-contact-current {
   display: flex;
-  padding: 3vh 0 4vh 38px;
+  padding: 2vh 0 2vh 35px;
   cursor: default;
   align-items: center;
   transition-duration: 300ms;
@@ -94,4 +84,14 @@
   transition-property: transform opacity color text-shadow border;
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 7px rgba(219, 219, 219, 0.42);
+}
+
+@media only screen and (max-width: 768px) {
+  .menu-selection,
+  .menu-selection-visible {
+    transition-duration: 300ms;
+    transition-property: opacity transform;
+    transform: translateX(-5vw);
+    opacity: 0;
+  }
 }

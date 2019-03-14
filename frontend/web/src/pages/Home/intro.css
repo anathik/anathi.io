@@ -37,56 +37,6 @@
 
 /* Page Menu Sizing/Positioning/Click\Hover-Animation Settings */
 /* More Menu setting in ./menu-item.css */
-.menu-button {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  height: 90px;
-  width: 90px;
-  justify-content: center;
-  align-items: center;
-}
-
-.menu-button #menu-icon {
-  display: flex;
-  font-size: 45px;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  justify-content: center;
-  cursor: pointer;
-  background: transparent;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  transition-property: color text-shadow;
-  transition-duration: 300ms;
-}
-
-.menu-button #menu-icon:hover {
-  transition-property: text-shadow color;
-  transition-duration: 200ms;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
-  color: #fff;
-}
-
-.menu-button #menu-icon-clicked:hover {
-  transition-property: text-shadow color;
-  transition-duration: 300ms;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.menu-button #menu-icon-clicked {
-  font-size: 45px;
-  cursor: pointer;
-  justify-content: center;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.8);
-  color: rgba(255, 255, 255, 1);
-  transform: translateX(6px);
-  transition-property: color text-shadow transform;
-  transition-duration: 300ms;
-}
 
 /* Div Sizing/Image Settings */
 .page-div {
@@ -110,23 +60,6 @@
   align-content: center;
 }
 
-/* Div Background Color Settings */
-.page-div#about-me-div {
-  background: rgba(255, 255, 255, 1);
-}
-.page-div#skills-div {
-  background: rgba(59, 204, 168, 0.692);
-}
-.page-div#projects-div {
-  background: rgba(50, 115, 255, 0.4);
-}
-.page-div#activities-div {
-  background: rgba(255, 7, 61, 0.7);
-}
-.page-div#contact-div {
-  background: rgba(151, 103, 12, 0.7);
-}
-
 /* Div Overlay Opacity Settings */
 .splash-div-overlay,
 .splash-div-overlay-dimmed {
@@ -136,20 +69,13 @@
   width: 100%;
   min-height: 650px;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
   transition-property: opacity background height;
   transition-duration: 500ms;
-}
-.splash-div-overlay-dimmed {
-  transition-property: opacity background;
-  transition-duration: 500ms;
-  background: rgba(0, 0, 0, 0.76);
 }
 
 /* All Splash Div Asset Settings */
 /* Logo */
-.page-logo-container,
-.page-logo-container-dimmed {
+.page-logo-container {
   position: relative;
   overflow: hidden;
   display: flex;
@@ -164,13 +90,8 @@
   transition-property: background;
   transition-duration: 500ms;
 }
-.page-logo-container-dimmed {
-  background: rgba(49, 49, 49, 0.54);
-  transition-property: background;
-  transition-duration: 500ms;
-}
-.page-logo,
-.page-logo-dimmed {
+
+.page-logo {
   opacity: 1;
   box-sizing: border-box;
   overflow: hidden;
@@ -183,15 +104,9 @@
   transition-property: opacity;
   transition-duration: 500ms;
 }
-.page-logo-dimmed {
-  opacity: 0.3;
-  transition-property: opacity;
-  transition-duration: 500ms;
-}
 
 /* Greeting */
-.greeting,
-.greeting-dimmed {
+.greeting {
   position: relative;
   cursor: default;
   overflow: visible;
@@ -207,21 +122,14 @@
   letter-spacing: 14px;
   font-size: 3vw;
   font-weight: 200;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   opacity: 1;
   transition-property: opacity color text-shadow;
   transition-duration: 500ms;
 }
-.greeting-dimmed {
-  color: rgba(255, 255, 255, 0.25);
-  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
-  transition-property: color text-shadow;
-  transition-duration: 500ms;
-}
 
 /* Title */
-.title,
-.title-dimmed {
+.title {
   padding-top: 5px;
   position: relative;
   text-align: center;
@@ -235,76 +143,8 @@
   text-transform: uppercase;
   letter-spacing: 6px;
   font-size: 1.3vw;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   opacity: 1;
   transition-property: opacity color text-shadow;
   transition-duration: 500ms;
-}
-.title-dimmed {
-  color: rgba(255, 255, 255, 0.25);
-  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
-  transition-property: color text-shadow;
-  transition-duration: 500ms;
-}
-
-/* Scroll Down Button */
-.scrollTo-button-container,
-.scrollTo-button-container-dimmed {
-  overflow: hidden;
-  position: relative;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
-  color: rgba(255, 255, 255, 1);
-  bottom: 0;
-  transform: translateX(0vw);
-  margin: 30vh 0 0 0;
-  width: 60vw;
-  right: 20vw;
-  left: 20vw;
-  min-height: 60px;
-  cursor: pointer;
-  opacity: 1;
-  transition-property: opacity color text-shadow;
-  transition-duration: 500ms;
-}
-.scrollTo-button-container-dimmed {
-  cursor: default;
-  color: rgba(255, 255, 255, 0.45);
-  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0);
-  transition-property: color text-shadow;
-  transition-duration: 500ms;
-}
-.scrollTo-button-container-dimmed.scrollTo-about-button:hover {
-  transition-property: transform;
-  transition-duration: 500ms;
-  transform: translateY(0);
-}
-.scrollTo-text {
-  font-size: 1vw;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-family: "Quicksand", sans-serif;
-  padding-bottom: 5px;
-}
-.material-icons#scrollTo-icon {
-  font-size: 30px;
-}
-.scrollTo-about-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translateY(none);
-  height: 100%;
-  min-width: 72px;
-  transition-property: transform;
-  transition-duration: 200ms;
-}
-.scrollTo-about-button:hover {
-  transition-property: transform;
-  transition-duration: 200ms;
-  transform: translateY(1vh);
 }

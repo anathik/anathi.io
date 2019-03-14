@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import Home from "../Home/page.js";
-import Blog from "../Blog/blog.js";
+import Home from '../Home/page.jsx'
+import Blog from '../Blog/blog.js'
 
-import "./App.css";
+import './App.css'
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
         <Route path="/blog" component={Blog} />
       </div>
     </Router>
-  );
-};
+  )
+}
 
-export default App;
+export default App
