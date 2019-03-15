@@ -73,78 +73,12 @@
   transition-duration: 500ms;
 }
 
-/* All Splash Div Asset Settings */
-/* Logo */
-.page-logo-container {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 20vh;
-  width: fit-content;
-  transform: translateX(-50%);
-  right: 50vw;
-  left: 50vw;
-  background: rgba(49, 49, 49, 0.7);
-  transition-property: background;
-  transition-duration: 500ms;
-}
-
-.page-logo {
-  opacity: 1;
-  box-sizing: border-box;
-  overflow: hidden;
-  height: 20vw;
-  width: 20vw;
-  margin: -5vw;
-  background-size: contain;
-  background-position: center;
-  opacity: 1;
-  transition-property: opacity;
-  transition-duration: 500ms;
-}
-
-/* Greeting */
-.greeting {
-  position: relative;
-  cursor: default;
-  overflow: visible;
-  white-space: nowrap;
-  padding-top: 26vh;
-  left: 20vw;
-  max-width: 60vw;
-  right: 20vw;
-  text-align: center;
-  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
-  color: rgba(255, 255, 255, 1);
-  text-transform: uppercase;
-  letter-spacing: 14px;
-  font-size: 3vw;
-  font-weight: 200;
-  font-family: 'Quicksand', sans-serif;
-  opacity: 1;
-  transition-property: opacity color text-shadow;
-  transition-duration: 500ms;
-}
-
-/* Title */
-.title {
-  padding-top: 5px;
-  position: relative;
-  text-align: center;
-  white-space: nowrap;
-  cursor: default;
-  left: 20vw;
-  max-width: 60vw;
-  right: 20vw;
-  text-shadow: 1px 1px 10px rgba(219, 219, 219, 0.42);
-  color: rgba(255, 255, 255, 0.9);
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  font-size: 1.3vw;
-  font-family: 'Quicksand', sans-serif;
-  opacity: 1;
-  transition-property: opacity color text-shadow;
-  transition-duration: 500ms;
+@media only screen and (max-width: 768px) {
+  .page-div {
+    height: 60vh;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
 }

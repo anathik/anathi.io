@@ -3,14 +3,13 @@
   position: fixed;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 13vh 0 9vh 0;
+  padding: 11vw 0 9vh 0;
   height: 100vh;
-  width: 5vw;
-  min-width: 230px;
   color: rgba(255, 255, 255, 0.8);
+  mix-blend-mode: difference;
   text-transform: uppercase;
   letter-spacing: 4px;
-  font-size: 13px;
+  font-size: 15px;
   font-family: 'Quicksand', sans-serif;
   transition-property: transform opacity;
   transition-duration: 600ms;
@@ -35,7 +34,7 @@
 .menu-select-activities-current,
 .menu-select-contact-current {
   display: flex;
-  padding: 2vh 0px 2vh 20px;
+  padding: 20px 0px 20px 1.1vw;
   cursor: pointer;
   align-items: center;
   transform: translateX(0);
@@ -75,7 +74,7 @@
 .menu-select-activities-current,
 .menu-select-contact-current {
   display: flex;
-  padding: 2vh 0 2vh 35px;
+  padding: 20px 0 20px 1.3vw;
   cursor: default;
   align-items: center;
   transition-duration: 300ms;
@@ -86,12 +85,12 @@
   text-shadow: 1px 1px 7px rgba(219, 219, 219, 0.42);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1725px) {
   .menu-selection,
   .menu-selection-visible {
     transition-duration: 300ms;
     transition-property: opacity transform;
-    transform: translateX(-5vw);
+    transform: translateX(-12vw);
     opacity: 0;
   }
 }

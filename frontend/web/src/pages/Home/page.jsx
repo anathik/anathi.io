@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import scrollToComponent from 'react-scroll-to-component'
 
+import Splash from './sections/splash/index'
+
 import './intro.css'
 import './menu-item.css'
 
@@ -14,21 +16,6 @@ class Home extends Component {
   }
 
   perspectiveDidChange() {}
-
-  componentDidMount() {
-    this.readScreenHeight()
-    let ticking = false
-
-    window.addEventListener('scroll', e => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          this.readScreenHeight()
-          ticking = false
-        })
-        ticking = true
-      }
-    })
-  }
 
   readScreenHeight() {
     let getPixels = document
@@ -51,6 +38,21 @@ class Home extends Component {
     if (location >= 4 * divLength && location < 4.9 * divLength) {
       this.setState({ perspective: 'menu-select-contact' })
     }
+  }
+
+  componentDidMount() {
+    this.readScreenHeight()
+    let ticking = false
+
+    window.addEventListener('scroll', e => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          this.readScreenHeight()
+          ticking = false
+        })
+        ticking = true
+      }
+    })
   }
 
   // Only for the "Scroll Down" Button
@@ -170,13 +172,13 @@ class Home extends Component {
               className={menuIntroClassName}
               onClick={this.scrollToIntroDivOnClick.bind(this)}
             >
-              <div>Intro</div>
+              <div>Welcome</div>
             </div>
             <div
               className={menuAboutClassName}
               onClick={this.scrollToAboutDivOnClick.bind(this)}
             >
-              <div>About Me</div>
+              <div>Profile</div>
             </div>
             <div
               className={menuSkillsClassName}
@@ -199,7 +201,7 @@ class Home extends Component {
           </div>
         </div>
 
-        <div className="page-div" id="splash-div" />
+        <Splash />
         <div className="page-div" id="about-me-div" />
         <div className="page-div" id="skills-div" />
         <div className="page-div" id="projects-div" />
